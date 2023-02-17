@@ -10,6 +10,8 @@ sh 0_basic_setting.sh
 
 which will install Java Development Kit (JDK), download binary Kafka zip file, unzip and move the Kafka files to /usr/local directory.
 
+It will also install PyTorch after installing all kafka components
+
 ## 2. Zookeeper
 
 ```bash
