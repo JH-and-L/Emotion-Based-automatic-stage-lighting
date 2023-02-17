@@ -60,10 +60,10 @@ with these following configuration:
 broker.id=1
 
 # allow requests from specific IP addresses
-listeners=PLAINTEXT://<first pi IP address>:9092,PLAINTEXT://<second pi IP address>:9092
+listeners=PLAINTEXT://<first pi IP address>:9093,PLAINTEXT://<second pi IP address>:9093
 
 # host broker on external IP address of GCP VM instance
-advertised.listeners=PLAINTEXT://<GCP VM instance external IP address>:9092
+advertised.listeners=PLAINTEXT://<GCP VM instance external IP address>:9093
 
 # separate directory for event logs
 log.dirs=/tmp/kafka-logs-backup
@@ -75,7 +75,11 @@ log.dirs=/tmp/kafka-logs-backup
 sh 3_create_topic.sh <topic name>
 ```
 
+```3_create_topic.sh``` contains code for creating new topics.
 
+To keep the FIFO behavior of events, the number of partitions are kept as 1, but to replicate the events to the backup broker, the replication factor is set as 2. Thus, two brokers are required to be hosted before running this code. 
+
+If only a single broker is to be utilized, change REPLICATION to 1 before running this code 
 
 ## 5. Emotion Classification
 
