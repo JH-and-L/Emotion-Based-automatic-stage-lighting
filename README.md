@@ -4,7 +4,11 @@ This is repository of the team JH&L from the studio project in CMU.
 
 Our project is to develop a stage lighting adjustment demo-system based on emotion detection. Overall, we have utilized two Raspberry Pi as our edge devices and the Google Cloud Platform as our server. For the lighting system, we use KASA Smart light bulb.
 
-This repository consists of two main directories, and each of those directories operates separately on Raspberry Pi and GCP.
+![System Architecture](imgs/SystemArchitecture.png)
+
+This repository consists of two main directories, and each of those directories operates separately on Raspberry Pi(`pi/`) and GCP(`gcp/`).
+
+In our demo, we have an additional visualization of input level and VAD module. Code for this live visualization is in `demo/`.
 
 
 ## 0. Configuration
