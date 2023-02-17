@@ -40,21 +40,22 @@ if __name__ == '__main__':
         config = json.load(f)
 
     server = f"localhost:{config['PORT']}"
+    backup_server = f"localhost:{config['BU_PORT']}"
     source_topic = config[f"STT_TOPIC{config['bulb_id']}"]
     target_topic = config[f"EMOTION_TOPIC{config['bulb_id']}"]
 
     try:
         # main broker
-        consumer = KafkaConsumer(bootstrap_servers=[f'{args.host_ip}:9092'], auto_offset_reset='latest')
-        consumer.subscribe([args.source_topic])
+        consumer = KafkaConsumer(bootstrap_servers=[server], auto_offset_reset='latest')
+        consumer.subscribe([source_topic])
 
-        producer = KafkaProducer(bootstrap_servers=[f'{args.host_ip}:9092'])
+        producer = KafkaProducer(bootstrap_servers=[server])
     except:
         # backup broker
-        consumer = KafkaConsumer(bootstrap_servers=[f'{args.host_ip}:9093'], auto_offset_reset='latest')
-        consumer.subscribe([args.source_topic])
+        consumer = KafkaConsumer(bootstrap_servers=[backup_server], auto_offset_reset='latest')
+        consumer.subscribe([source_topic])
 
-        producer = KafkaProducer(bootstrap_servers=[f'{args.host_ip}:9093'])
+        producer = KafkaProducer(bootstrap_servers=[backup_server])
 
     for msg in consumer:
         # get stt result
