@@ -9,7 +9,7 @@ import time
 time_window = 50
 threshold = 0.0
 
-def frame():
+def frame(res1, res2):
     void_time = datetime.strptime(datetime.now().time().strftime('%H:%M:%S.%f'), '%H:%M:%S.%f')
     x = [void_time] * time_window
     pi9_dec = [0] * time_window 
@@ -30,8 +30,8 @@ def frame():
     #date_formatter = mdates.DateFormatter('%H:%M:%S.%f')
     while True:
         try:
-            res_pi9 = json.load(open('res_pi9.json', 'r'))
-            res_pi10 = json.load(open('res_pi10.json', 'r'))
+            res_pi9 = json.load(open(res1, 'r'))
+            res_pi10 = json.load(open(res2, 'r'))
         except:
             time.sleep(1)
 
@@ -108,4 +108,9 @@ def frame():
 
 
 if __name__=='__main__':
-    frame()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--response_first', type=str)
+    parser.add_argument('--response_second', type=str)
+    args = parser.parse_args()
+
+    frame(args.response_first, args.response_second)
