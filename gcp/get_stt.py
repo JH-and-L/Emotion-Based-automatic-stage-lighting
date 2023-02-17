@@ -65,10 +65,18 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    consumer = KafkaConsumer(bootstrap_servers=[f'{args.host_ip}:9092'], auto_offset_reset='latest')
-    consumer.subscribe([args.source_topic])
+    try:
+        # main broker
+        consumer = KafkaConsumer(bootstrap_servers=[f'{args.host_ip}:9092'], auto_offset_reset='latest')
+        consumer.subscribe([args.source_topic])
 
-    producer = KafkaProducer(bootstrap_servers=[f'{args.host_ip}:9092'])
+        producer = KafkaProducer(bootstrap_servers=[f'{args.host_ip}:9092'])
+    except:
+        # backup broker
+        consumer = KafkaConsumer(bootstrap_servers=[f'{args.host_ip}:9093'], auto_offset_reset='latest')
+        consumer.subscribe([args.source_topic])
+
+        producer = KafkaProducer(bootstrap_servers=[f'{args.host_ip}:9093'])
 
     for msg in consumer:
         # get stt result
