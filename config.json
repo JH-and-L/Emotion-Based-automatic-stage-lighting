@@ -1,0 +1,10 @@
+{
+    "GCP_IP": "xxx.xxx.xxx.xxx",
+    "PORT": "9092",
+    "STT_TOPIC1": "stt-text",
+    "STT_TOPIC2": "stt-text2",
+    "BULB_IP1": "xxx.xxx.xxx.xxx",
+    "BULB_IP2": "xxx.xxx.xxx.xxx",
+    "EMOTION_TOPIC1": "sentiment",
+    "EMOTION_TOPIC2": "sentiment2"
+}
