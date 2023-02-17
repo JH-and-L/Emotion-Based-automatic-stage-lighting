@@ -32,10 +32,6 @@ python pi/KASA_kafka_consumer.py -p ./config.json -i BULB_ID
 ## 2. Server: Google Cloud Platform
 
 On GCP, you first need to setup Kafka environment and run zookeeper/broker. Detailed Kafka configuration on GCP can be found in `gcp/README.md`.
-To do so, you can simply run the below scripts subsequently.
-- `gcp/0_basic_setting.sh`
-- `gcp/1_run_zookeeper.sh`
-- `gcp/2_run_kafka_server.sh`
 
 To run the emotion detection on GCP,
 ```
