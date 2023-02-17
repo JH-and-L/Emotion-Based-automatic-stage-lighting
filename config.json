@@ -1,6 +1,7 @@
 {
     "GCP_IP": "xxx.xxx.xxx.xxx",
     "PORT": "9092",
+    "BU_PORT": "9093",
     "STT_TOPIC1": "stt-text",
     "STT_TOPIC2": "stt-text2",
     "BULB_IP1": "xxx.xxx.xxx.xxx",
