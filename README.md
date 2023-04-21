@@ -1,8 +1,8 @@
 # Emotion-Based-automatic-stage-lighting
 
-This is repository of the team JH&L from the studio project in CMU.
+Welcome to the repository of team JH&L, who participated in the studio project at CMU.
 
-Our project is to develop a stage lighting adjustment demo-system based on emotion detection. Overall, we have utilized two Raspberry Pi as our edge devices and the Google Cloud Platform as our server. For the lighting system, we use KASA Smart light bulb.
+Our project focuses on developing a demo-system that adjusts stage lighting based on emotion detection. To accomplish this, we have utilized two Raspberry Pi devices as our edge devices and the Google Cloud Platform as our server. Additionally, we are using KASA Smart light bulbs for the lighting system.
 
 ![System Architecture](imgs/SystemArchitecture.png)
 
